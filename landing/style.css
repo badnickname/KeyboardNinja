@@ -1,0 +1,20 @@
+.section {
+    text-align: center;
+}
+
+.ui.header.kn-text {
+    color: #ecf0f1;
+    font-size: 5rem;
+}
+
+.fp-slidesNav ul li a span {
+    background: #ecf0f1;
+}
+
+.fp-controlArrow.fp-next {
+    border-left-color: #ecf0f1;
+}
+
+.fp-controlArrow.fp-prev {
+    border-right-color: #ecf0f1;
+}
