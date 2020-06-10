@@ -4,15 +4,14 @@
 
 // SCENE (BASE) ================================================================
 class Scene {
-private:
+ private:
+ protected:
+  sf::RenderWindow* app;
+  virtual void eventProc();
 
-protected:
-    sf::RenderWindow* app;
-    virtual void eventProc();
-
-public:
-    virtual bool init(sf::RenderWindow* app);
-    virtual char step();
-    virtual void draw();
-    virtual void destroy(Scene*);
+ public:
+  virtual bool init(sf::RenderWindow* app);
+  virtual char step();
+  virtual void draw();
+  virtual void destroy(Scene*);
 };
