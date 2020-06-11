@@ -1,3 +1,8 @@
+struct results {
+  std::string name;
+  int score;
+};
+
 class SceneInputLead : public Scene {
  private:
   static int const NUMBERS = 30;

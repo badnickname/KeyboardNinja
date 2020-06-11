@@ -4,11 +4,6 @@ std::string convToString(int number) {
   return ss.str();
 }
 
-struct results {
-  std::string name;
-  int score;
-};
-
 std::istream &operator>>(std::istream &is, results &res) {
   is >> res.name >> res.score;
   return is;
