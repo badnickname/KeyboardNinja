@@ -29,3 +29,19 @@ jobs:
 
     - name: build
       run: make
+      
+  build-windows:    
+    needs: check-format
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: install sfml
+      run: 
+        wget https://artifacts.sfml-dev.org/by-branch/master/windows-gcc-730-mingw-32.zip
+        unzip windows-gcc-730-mingw-32.zip >> %LIBRARY_PATH%
+
+    - name: build
+      run: make
