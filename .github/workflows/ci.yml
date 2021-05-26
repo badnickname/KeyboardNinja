@@ -41,7 +41,7 @@ jobs:
     - name: install sfml
       run: |
         $TEMP_SFML = $Env:TEMP +"\windows-gcc-730-mingw-32.zip"
-        Invoke-WebRequest -Uri "https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-32-bit.zip" -OutFile $TEMP_SFML
+        Invoke-WebRequest -Uri "https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip" -OutFile $TEMP_SFML
         $Env:SFML_PATH = 'C:\SFML\SFML-2.5.1'
         mkdir C:\SFML
         7z x $TEMP_SFML -oC:\SFML
