@@ -10,3 +10,4 @@ make
 cd bin
 
 ./KeyNinja
+
