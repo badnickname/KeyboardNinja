@@ -2,7 +2,7 @@ GCC       =  g++
 FLAGS	  =  -Wall
 SFMLFLAGS =  -lsfml-graphics -lsfml-window -lsfml-system
 APPNAME   =  application
-SFML_LIB_PATH = C:\SFML\SFML-2.5.1\lib
+SFML_LIB_PATH = C:\SFML\SFML-2.5.1\include
 
 
 all:
