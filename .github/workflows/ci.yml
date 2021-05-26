@@ -49,6 +49,11 @@ jobs:
     - name: build
       run: make windows_build
       
+    - name: test
+      run: |
+        ls
+        ls bin
+      
     - name: upload artifacts
       uses: actions/upload-artifact@v2
       with:
