@@ -11,7 +11,7 @@ all:
 	
 windows_build: 
 	mkdir -p bin
-	g++ -g main.cpp -o bin/KeyNinja -L$(SFML_LIB_PATH) -lsfml-graphics -lsfml-window -lsfml-system
+	g++ -g main.cpp -o bin/KeyNinja -IC:\SFML\SFML-2.5.1\include -LC:\SFML\SFML-2.5.1\lib -lsfml-graphics -lsfml-window -lsfml-system
 
 clean:
 	rm menu
