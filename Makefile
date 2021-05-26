@@ -2,11 +2,16 @@ GCC       =  g++
 FLAGS	  =  -Wall
 SFMLFLAGS =  -lsfml-graphics -lsfml-window -lsfml-system
 APPNAME   =  application
+SFML_LIB_PATH = ${SFML_PATH}\lib
 
 
 all:
 	mkdir -p bin
 	g++ -g main.cpp -o bin/KeyNinja -lsfml-graphics -lsfml-window -lsfml-system
+	
+windows_build: 
+	mkdir -p bin
+	g++ -g main.cpp -o bin/KeyNinja -L$(SFML_LIB_PATH) -lsfml-graphics -lsfml-window -lsfml-system
 
 clean:
 	rm menu
