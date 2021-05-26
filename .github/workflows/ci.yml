@@ -1,0 +1,50 @@
+name: ci
+
+on: [push]
+
+jobs:
+  check-format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: DoozyX/clang-format-lint-action@v0.5
+      with:
+        source: '.'
+        extensions: 'hpp,cpp'
+        clangFormatVersion: 9
+        style: Google
+
+  build-ubuntu:    
+    needs: check-format
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: install sfml
+      run: sudo apt install libsfml-dev
+
+    - name: build
+      run: make
+      
+  build-windows:    
+    needs: check-format
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: install sfml
+      run: |
+        $TEMP_SFML = $Env:TEMP +"\windows-gcc-730-mingw-32.zip"
+        Invoke-WebRequest -Uri "https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip" -OutFile $TEMP_SFML
+        $Env:SFML_PATH = 'C:\SFML\SFML-2.5.1'
+        mkdir C:\SFML
+        7z x $TEMP_SFML -oC:\SFML
+
+    - name: build
+      run: make windows_build
