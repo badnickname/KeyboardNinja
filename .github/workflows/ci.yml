@@ -48,3 +48,23 @@ jobs:
 
     - name: build
       run: make windows_build
+      
+    - name: test
+      run: |
+        ls
+        ls bin
+      
+    - name: copy artifacts
+      run: |
+        mkdir artifacts
+        cp bin/KeyNinja.exe artifacts/KeyNinja.exe
+        cp -r graphics artifacts/graphics
+        cp -r resources artifacts/resources
+        Get-Content results.txt -Encoding UTF8 | Out-File artifacts/results.txt -Encoding "windows-1251"
+        Get-Content resources/words.txt -Encoding UTF8 | Out-File artifacts/resources/words.txt -Encoding "windows-1251"
+        
+    - name: upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: KeyboardNinja-windows
+        path: artifacts/
